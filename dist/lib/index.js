@@ -19,13 +19,14 @@ const countries_1 = require("./parts/utils/countries");
 const query_module_1 = require("./query/query.module");
 const services_1 = require("./parts/utils/services");
 let Base = class Base {
-    constructor(apiKey, query, countries, services, utils) {
+    constructor(baseUrl, apiKey, query, countries, services, utils) {
+        this.baseUrl = baseUrl;
         this.apiKey = apiKey;
         this.query = query;
         this.countries = countries;
         this.services = services;
         this.utils = utils;
-        query === null || query === void 0 ? void 0 : query.setApiKey(apiKey);
+        query === null || query === void 0 ? void 0 : query.setApiKey(baseUrl, apiKey);
     }
 };
 __decorate([
@@ -34,14 +35,14 @@ __decorate([
 ], Base.prototype, "this", void 0);
 Base = __decorate([
     (0, tsyringe_1.autoInjectable)(),
-    __metadata("design:paramtypes", [String, query_module_1.Query,
+    __metadata("design:paramtypes", [String, String, query_module_1.Query,
         countries_1.Countries,
         services_1.Services,
         utils_1.Utils])
 ], Base);
 class SMSActivate extends Base {
-    constructor(apiKey) {
-        super(apiKey);
+    constructor(baseUrl, apiKey) {
+        super(baseUrl, apiKey);
     }
 }
 exports.SMSActivate = SMSActivate;
