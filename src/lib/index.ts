@@ -32,7 +32,7 @@ class Base {
     query?.setApiKey(baseUrl,apiKey,proxy);
   }
 }
-
+//
 export class SMSActivate extends Base {
   public utils: Utils;
 
