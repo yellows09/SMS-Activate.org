@@ -35,6 +35,7 @@ export class Query {
       };
 
       if (this.proxy) {
+        console.log('proxy passed')
         axiosConfig.proxy = {
           host: this.proxy.ip,
           port: this.proxy.port,
@@ -46,8 +47,9 @@ export class Query {
               : undefined,
           protocol: this.proxy.protocol,
         };
+        console.log(axiosConfig)
       }
-      console.log(axiosConfig)
+
       axios
         .get(this.baseUrl, axiosConfig)
         .then((result) => {

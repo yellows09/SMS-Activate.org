@@ -42,6 +42,7 @@ let Query = class Query {
                 params: Object.assign({ api_key: this.apiKey, action: comon_1.EApiActions[action] }, query),
             };
             if (this.proxy) {
+                console.log('proxy passed');
                 axiosConfig.proxy = {
                     host: this.proxy.ip,
                     port: this.proxy.port,
@@ -53,8 +54,8 @@ let Query = class Query {
                         : undefined,
                     protocol: this.proxy.protocol,
                 };
+                console.log(axiosConfig);
             }
-            console.log(axiosConfig);
             axios_1.default
                 .get(this.baseUrl, axiosConfig)
                 .then((result) => {
